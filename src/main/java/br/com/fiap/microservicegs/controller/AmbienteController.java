@@ -37,12 +37,6 @@ public class AmbienteController {
 		return ambienteRepository.findAll();
 	}
 	
-	@DeleteMapping("ambiente")
-	@PreAuthorize("hasRole('adm')")
-	public void removeAmbiente(@RequestBody Ambiente ambiente) {
-		ambienteRepository.delete(ambiente);
-	}
-	
 	@PutMapping("/ambiente")
 	@PreAuthorize("hasRole('adm')")
 	public Ambiente putAmbiente (@RequestBody Ambiente ambiente) {
@@ -52,5 +46,10 @@ public class AmbienteController {
 	@PreAuthorize("hasRole('adm')")
 	public Ambiente createAmbiente(@RequestBody Ambiente ambiente) {
 		return ambienteRepository.save(ambiente);
+	}
+	@DeleteMapping("ambiente")
+	@PreAuthorize("hasRole('adm')")
+	public void removeAmbiente(@RequestBody Ambiente ambiente) {
+		ambienteRepository.delete(ambiente);
 	}
 }
